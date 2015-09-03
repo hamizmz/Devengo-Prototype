@@ -1,0 +1,23 @@
+/*
+ *
+ * CSS Modifications for narrower displays
+ *
+ *
+ */
+
+.User {
+	width:66% !important;
+}
+
+.Apps {
+	display:none;
+}
+
+.Dash .Wages .Actions {
+	display:none;
+}
+
+.Dash .Wages .Info {
+	width:auto;
+	margin:0;
+}
