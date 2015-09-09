@@ -17,6 +17,8 @@ gems = new (function Gems() {
 			};
 		};
 		this.connect = function(callback, force_to_front) {
+			if (!callback)
+				throw 'Dude... pass a callback';
 			if (force_to_front)
 				_items.splice(0, 0, callback);
 			else
@@ -25,7 +27,7 @@ gems = new (function Gems() {
 		this.disconnect = function(callback) {
 			_items.forEach(get_find_callback(callback));
 		};
-		this.broadcast = function() { 
+		this.broadcast = function() {
 			_items.slice(0).forEach(get_broadcaster(arguments));
 		};
 		this.clear = function() {

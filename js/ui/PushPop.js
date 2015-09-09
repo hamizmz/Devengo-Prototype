@@ -24,8 +24,6 @@ namespace('ui').PushPop = function PushPop(_dom) {
 			el.addTransition(Morpheus.TRANSFORM, 375, 'ease-out', 0);
 			
 			requestAnimationFrame(function() {
-				if (el.className == 'Login')
-					console.log('Translating!');
 				el.translation(-direction * 100, 0, 0, '%');
 			});
 		};
@@ -36,7 +34,6 @@ namespace('ui').PushPop = function PushPop(_dom) {
 		el.addTransition(Morpheus.TRANSFORM, 375, 'ease-out', 0);
 		
 		requestAnimationFrame(function() {
-			console.log();
 			el.translation(-direction * 100, 0, 0, '%');
 		});
 	}.bind(this);

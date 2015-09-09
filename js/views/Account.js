@@ -10,7 +10,6 @@
 ];
 
 namespace('views').Account = function Account(_dom) {
-	console.log(_dom);
 	this.dom = _dom.container;
 	
 	var _viewpusher = new ui.ViewPusher(_dom.pages.container);

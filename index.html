@@ -32,6 +32,16 @@
 			
 			<!--
 				
+				Generic Loading View
+				
+			-->
+			<article id="Interstitial">
+				<div class="Spinner"></div>
+			</article>
+			
+			
+			<!--
+				
 				LANDING VIEW
 				
 			-->
@@ -127,6 +137,7 @@
 				</header>
 				<section>
 					<div class="Field">
+						<h2>Username &amp; Password</h2>
 						<form>
 							<div>
 								<label>Username</label><input id="usr_login" type="text">
@@ -134,14 +145,14 @@
 							<div>
 								<label>Password</label><input id="pwd_login" type="password">
 							</div>
-							<input type="submit">
+							<button type="button">Login</button>
 						</form>
+						<h2>Alternate Methods</h2>
 						<ul>
-							<li><button id="fb_login">Facebook Connect</button></li>
-							<li><button id="tw_login">Twitter Login</button></li>
-							<li><button id="yh_login">Yahoo! Login</button></li>
-							<li><button id="gl_login">Google Account</button></li>
-							<li><button id="oi_login">OpenID Account</button></li>
+							<li><button id="fb_login"><span class="Icon">U</span>Facebook Connect</button></li>
+							<li><button id="tw_login"><span class="Icon">B</span>Twitter Login</button></li>
+							<li><button id="gl_login"><span class="Icon">C</span>Google Account</button></li>
+							<li><button id="oi_login"><span class="Icon">|</span>OpenID Account</button></li>
 						</ul>
 					</div>
 				</section>
@@ -168,21 +179,25 @@
 				</header>
 				<section>
 					<div class="Field">
+						<h2>Using Your Email Address</h2>
 						<form>
+							<div>
+								<label>Email</label><input id="email_register" type="text" />
+							</div>
 							<div>
 								<label>Username</label><input id="usr_register" type="text">
 							</div>
 							<div>
 								<label>Password</label><input id="pwd_register" type="password">
 							</div>
-							<input type="submit">
+							<button type="button">Register</button>
 						</form>
+						<h2>Using an External Account</h2>
 						<ul>
-							<li><button id="fb_register">Facebook Connect</button></li>
-							<li><button id="tw_register">Twitter Login</button></li>
-							<li><button id="yh_register">Yahoo! Login</button></li>
-							<li><button id="gl_register">Google Account</button></li>
-							<li><button id="oi_register">OpenID Account</button></li>
+							<li><button id="fb_register"><span class="Icon">U</span>Facebook Connect</button></li>
+							<li><button id="tw_register"><span class="Icon">B</span>Twitter Login</button></li>
+							<li><button id="gl_register"><span class="Icon">C</span>Google Account</button></li>
+							<li><button id="oi_register"><span class="Icon">|</span>OpenID Account</button></li>
 						</ul>
 					</div>
 				</section>

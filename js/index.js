@@ -6,7 +6,9 @@
 
 './views/Splash.js',
 './views/Landing.js',
-'./views/Account.js'];
+'./views/Account.js',
+
+'./utils/AppState.js'];
 
 function __main__() {
 	var DOM = utils.DOM;
@@ -30,11 +32,19 @@ function __main__() {
 	function start() {
 		_viewpusher.push(_splash, 1);
 		setTimeout(_splash.hide, SPLASH_TIME);
-		//setTimeout(show_landing, SPLASH_TIME + 500);
-		setTimeout(show_account, SPLASH_TIME + 500);
+		setTimeout(show_landing, SPLASH_TIME + 500);
+		//setTimeout(show_account, SPLASH_TIME + 500);
+	};
+	
+	function onuserlogin(user) {
+		console.log(user);
+		utils.AppState.user = user;
+		console.log(utils.AppState.user);
+		show_account();
 	};
 	
 	window.show_landing = function show_landing() {
+		_landing.onlogin.connect(onuserlogin);
 		_viewpusher.push(_landing);
 	};
 	

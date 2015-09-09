@@ -4,3 +4,8 @@
  *
  *
  */
+
+form div label,
+div.Row label {
+    text-align:right;
+}

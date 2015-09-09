@@ -123,7 +123,7 @@ footer ul {
 
 footer .Legal {
 	float:right;
-	width:34%;
+	width:40%;
 }
 
 footer p {
@@ -198,14 +198,13 @@ div.Row {
 
 form div label,
 div.Row label {
-	text-align:right;
 	width:140pt;
 	font-weight:bold;
 	margin-right:10pt;
 }
 
-form div input {
-	margin-left:10pt !important;
+form div label {
+	margin-right:10pt;
 }
 
 article {
@@ -473,38 +472,37 @@ article > section {
 }
 
 .Field {
-	padding:60pt 20pt 0;
-}
-
-.Field:after {
-	content:".";
-	display:block;
-	clear:both;
-	height:0;
-	visibility:hidden;
-}
-
-.Field form, .Field ul {
-	float:left;
-	width:42% !important;
+	padding:60pt 20pt 30pt;
 }
 
 .Field form {
-	text-align:right;
-	padding-right:4% !important;
+	margin-bottom:30pt;
 }
 
 .Field ul {
-	text-align:left;
-	padding-left:4% !important;
+	padding-left:30pt;
 }
 
-.Field ul button {
+.Field button {
 	margin-bottom:10pt;
 }
 
-.Field input {
-	max-width:120px;
+.Field form button {
+	float:right;
+	margin:0;
+}
+
+.Field form::after, .Field ul::after {
+	content:".";
+	clear:both;
+	height:0;
+	visibility:hidden;
+	display:block;
+}
+
+.Field ul li {
+	float:left;
+	margin-right:10pt;
 }
 
 .ProgressBar {
