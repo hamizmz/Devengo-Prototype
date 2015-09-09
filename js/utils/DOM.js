@@ -51,7 +51,7 @@ namespace('utils').DOM = (function dom(_doc) {
 	function get_form_pane(container) {
 		return {
 			container: container,
-			form: container.by_tag('form')[0],
+			form: container.by_class('Field')[0],
 			cancel_btn: container.by_tag('header')[0].by_tag('button')[0]
 		};
 	};

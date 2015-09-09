@@ -18,6 +18,11 @@ namespace('views').Landing = function Landing(_view, _dom, _slideshow_dom, _logi
 	var _footer = new ui.Footer(DOM.footer_tmpl, _dom.getElementsByTagName('footer')[0]);
 	
 	this.dom = _dom;
+	var _onlogin = this.onlogin = new gems.Channel();
+	
+	function onuserlogin(user) {
+		_onlogin.broadcast(user);
+	};
 	
 	function on_shift(old_index, new_index) {
 		_lastIndex = new_index;
@@ -34,26 +39,27 @@ namespace('views').Landing = function Landing(_view, _dom, _slideshow_dom, _logi
 		};
 	};
 	
-	function leave_login() {
-		_login.dispose();
-		_view.push(_dom, 1);
-	};
+	var leave_login = function() {
+		_login.oncancel.disconnect(leave_login);
+		_view.push(this, 1);
+	}.bind(this);
 	
-	function leave_register() {
-		_register.dispose();
-		_view.push(_dom, 1);
-	};
+	var leave_register = function() {
+		_register.oncancel.disconnect(leave_register);
+		_register.onlogin.disconnect(onuserlogin);
+		_view.push(this, 1);
+	}.bind(this);
 	
 	function push_login(e) {
 		_login.oncancel.connect(leave_login);
-		_view.push(_login.dom, -1);
-		_login.init();
+		_login.onlogin.connect(onuserlogin);
+		_view.push(_login, -1);
 	};
 	
 	function push_register(e) {
 		_register.oncancel.connect(leave_register);
-		_view.push(_register.dom, -1);
-		_register.init();
+		_register.onlogin.connect(onuserlogin);
+		_view.push(_register, -1);
 	};
 	
 	function setup_buttons() {

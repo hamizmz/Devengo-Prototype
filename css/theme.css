@@ -126,8 +126,9 @@ article {
 	color:#bbb;
 }
 
-.Field ul {
-	border-left:1px dotted #aeaeae;
+.Field form {
+	padding-bottom:30pt;
+	border-bottom:1px dotted #aeaeae;
 }
 
 #splash h1,

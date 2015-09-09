@@ -21,3 +21,7 @@
 	width:auto;
 	margin:0;
 }
+
+.Field label {
+	display:block;
+}
