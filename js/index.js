@@ -7,6 +7,7 @@
 './views/Splash.js',
 './views/Landing.js',
 './views/Account.js',
+'./views/PreAccount.js',
 
 './utils/AppState.js'];
 
@@ -27,7 +28,9 @@ function __main__() {
 		DOM.landing.login_btn,
 		DOM.landing.register_btn);
 	
-	var _account = window.account = new views.Account(DOM.account);
+	var _account = window.account = new views.Account(DOM.account, utils.AppState);
+	
+	var _pre = new views.PreAccount(DOM.preaccount, utils.AppState);
 	
 	function start() {
 		_viewpusher.push(_splash, 1);
@@ -37,9 +40,15 @@ function __main__() {
 	};
 	
 	function onuserlogin(user) {
-		console.log(user);
 		utils.AppState.user = user;
-		console.log(utils.AppState.user);
+		
+		if (user.complete)
+			show_account();
+		else
+			show_preaccount();
+	};
+	
+	function onsubmit(user) {
 		show_account();
 	};
 	
@@ -50,6 +59,11 @@ function __main__() {
 	
 	window.show_account = function show_account() {
 		_viewpusher.push(_account, 1);
+	};
+	
+	window.show_preaccount = function() {
+		_pre.onsubmit.connect(onsubmit);
+		_viewpusher.push(_pre, 1);
 	};
 	
 	function return_to_slideshow(e) {

@@ -1,7 +1,9 @@
 [
 '../utils/DOM.js',
+
 '../ui/Footer.js',
 '../ui/ViewPusher.js',
+'../ui/AccountDash.js',
 
 '../views/account/History.js',
 '../views/account/Hours.js',
@@ -9,10 +11,12 @@
 '../views/account/Bank.js'
 ];
 
-namespace('views').Account = function Account(_dom) {
+namespace('views').Account = function Account(_dom, _state) {
 	this.dom = _dom.container;
 	
 	var _viewpusher = new ui.ViewPusher(_dom.pages.container);
+	
+	var _account_dash = new ui.AccountDash(_dom.header, gems.attach(_state).attach('user'));
 	
 	var _pages = _dom.pages.container;
 	var _history = new views.account.History(_dom.pages.history);

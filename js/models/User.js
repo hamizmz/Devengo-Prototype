@@ -1,5 +1,15 @@
+['../lib/gems.js', '../utils/Date.js'];
+
 (function() {
 	var serial = 0;
+	
+	function get_arbitrary_date(now) {
+		var day = now.getDate() < 15 ? 15 : utils.Date.total_days(now);
+		
+		now.setDate(day);
+		now.setDate(utils.Date.last_business_day(now));
+		return now;
+	};
 	
 	namespace('models').User = function User(_type) {
 		this.id = serial++;
@@ -13,21 +23,24 @@
 		this.has_employer = false;
 		this.has_bank = false;
 		
-		this.contact = {
+		this.complete = false;
+		this.tier = 0;
+		
+		this.contact = new gems.Model({
 			name: '',
 			email: '',
 			avatar: '/assets/images/avatars/lafleur.jpg',
 			phone: '',
 			address: {
 				street: '',
-				unit: null,
+				unit: '',
 				city: '',
 				province: '',
 				postal: ''
 			}
-		};
+		});
 		
-		this.employer = {
+		this.employer = new gems.Model({
 			name: '',
 			phone: '',
 			address: {
@@ -36,10 +49,11 @@
 				city: '',
 				province: '',
 				postal: ''
-			}
-		};
+			},
+			next_cheque: get_arbitrary_date(new Date()).toLocaleDateString()
+		});
 		
-		this.bank = {
+		this.bank = new gems.Model({
 			name: '',
 			institution: '',
 			branch: '',
@@ -48,7 +62,7 @@
 			
 			username: '',
 			password: ''
-		};
+		});
 		
 		this.set_login = function(username, password) {
 			this.username = username;
@@ -101,6 +115,9 @@
 				return this.verified = true;
 			return false;
 		}.bind(this);
+		
+		this.inheritFrom = gems.Model;
+		this.inheritFrom();
 	};
 	models.User.DEFAULT = 0;
 	models.User.OPEN_ID = 1;

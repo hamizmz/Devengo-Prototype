@@ -1,5 +1,10 @@
+['../lib/gems.js'];
+
 namespace('utils').AppState = new (function AppState() {
-	this.user = null;
+	this.inherit = gems.Model;
+	this.inherit({
+		user: null
+	});
 	
 	this.save = function() {
 		localStorage.setItem('app_state', JSON.stringify(this));

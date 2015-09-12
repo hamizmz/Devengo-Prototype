@@ -26,6 +26,32 @@
 			};
 		};
 		
+		function get_property_copier(from, to) {
+			return function(prop) {
+				if (from[prop] === null)
+					return;
+				if (typeof from[prop] === 'object')
+					copy(from[prop], to[prop]);
+				else
+					to[prop] = from[prop];
+			};
+		};
+		
+		function copy(from, to) {
+			Object.keys(from).forEach(get_property_copier(from, to));
+		};
+		
+		function get_copy_item(to) {
+			return function(item, index) {
+				var user = to[index] = new User(item.type);
+				copy(item, user);
+			};
+		};
+		
+		function copy_all(list, to) {
+			list.forEach(get_copy_item(to));
+		};
+		
 		this.check_email = function(email) {
 			return _users.filter(get_email_filter(email)).length > 0;
 		};
@@ -52,8 +78,12 @@
 		
 		this.load = function() {
 			var item = localStorage.getItem(_name);
-			if (item)
-				_users = JSON.parse(item);
+			if (item) {
+				_users = [];
+				
+				var items = JSON.parse(item);
+				copy_all(items, _users);
+			}
 			else {
 				_users = [];
 				this.save();
