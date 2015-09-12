@@ -27,9 +27,7 @@ namespace('views').PreAccount = function PreAccount(_dom, _state) {
 			form.address.province.value, form.address.postal.value);
 		
 		user.complete = true;
-		
 		net.UserStore.save();
-		
 		_onsubmit.broadcast(user);
 	};
 	

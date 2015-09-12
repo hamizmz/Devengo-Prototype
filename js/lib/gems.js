@@ -110,7 +110,7 @@ gems = new (function Gems() {
 		delete this.extend;
 		var _props = {};
 		var _persistent = {};
-		this.raw = _props;
+		
 		function __constructor__(obj) {
 			if (!obj)
 				obj = this;
@@ -124,6 +124,8 @@ gems = new (function Gems() {
 					this.__defineSetter__(prop, setter.bind(this, prop));
 				}
 			}
+			
+			this.raw = _props; // ça marche là?
 			delete _attributes;
 		};
 		function getter(prop) {
@@ -151,6 +153,10 @@ gems = new (function Gems() {
 		}.bind(this);
 		
 		this.close = this.unbind;
+		
+		this.toJSON = function() {
+			return _props;
+		};
 		
 		__constructor__.call(this, _attributes);
 	};
