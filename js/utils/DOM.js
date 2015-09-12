@@ -48,6 +48,28 @@ namespace('utils').DOM = (function dom(_doc) {
 		};
 	};
 	
+	function get_pre() {
+		var container = get_item('pre_account');
+		return {
+			container: container,
+			submit_btn: container.by_tag('button')[0],
+			form: {
+				container: container.by_tag('form')[0],
+				name: get_item('name_needed'),
+				email: get_item('email_needed'),
+				number: get_item('number_needed'),
+				address: {
+					container: container.by_tag('fieldset')[0],
+					street: get_item('street_needed'),
+					unit: get_item('unit_needed'),
+					city: get_item('city_needed'),
+					province: get_item('province_needed'),
+					postal: get_item('postal_needed')
+				}
+			}
+		};
+	};
+	
 	function get_form_pane(container) {
 		return {
 			container: container,
@@ -111,6 +133,7 @@ namespace('utils').DOM = (function dom(_doc) {
 			landing: get_landing(),
 			register: get_register(),
 			login: get_login(),
+			preaccount: get_pre(),
 			account: get_account(),
 			footer_tmpl: get_item('footer_template')
 		};

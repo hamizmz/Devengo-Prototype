@@ -104,15 +104,13 @@ gems = new (function Gems() {
 		this.model = _model;
 	};
 
-	var MODEL_SERIAL = 0;
-	var Model = this.Model = function Model(_attributes, _to_save) {
+	var Model = this.Model = function Model(_attributes, _to_save, _id) {
 		this.extend = Dispatcher;
 		this.extend();
 		delete this.extend;
-		var _id = 'Model_' + MODEL_SERIAL++;
 		var _props = {};
 		var _persistent = {};
-		this.raw = _props;
+		
 		function __constructor__(obj) {
 			if (!obj)
 				obj = this;
@@ -126,8 +124,9 @@ gems = new (function Gems() {
 					this.__defineSetter__(prop, setter.bind(this, prop));
 				}
 			}
+			
+			this.raw = _props; // ça marche là?
 			delete _attributes;
-			this.read();
 		};
 		function getter(prop) {
 			return _props[prop];
@@ -145,29 +144,20 @@ gems = new (function Gems() {
 					setTimeout(save, 1000);
 			}
 		};
-		function get_property_copier(from, to) {
-			return function(prop) {
-				to[prop] = from[prop];
-			};
-		};
-		function map(from, using) {
-			var to = {};
-			using.forEach(get_property_copier(from, to));
-			return to;
-		};
-		function copy(from, to) {
-			Object.keys(from).forEach(get_property_copier(from, to));
-		};
-		this.get_and_bind = function(name, callback) {
-		};
-		var save = this.save = function() {
-			localStorage[_id] = JSON.stringify(map(this, _to_save));
+		
+		this.open = function(name, callback) {
+			var value = _props[name];
+			if (gems.has_value(value))
+				callback(new Change(this, name, value, null));
+			this.bind(name, callback);
 		}.bind(this);
-		this.read = function() {
-			if (localStorage[_id])
-				copy(JSON.parse(localStorage[_id]), this);
-		}.bind(this);
-
+		
+		this.close = this.unbind;
+		
+		this.toJSON = function() {
+			return _props;
+		};
+		
 		__constructor__.call(this, _attributes);
 	};
 
@@ -216,13 +206,13 @@ gems = new (function Gems() {
 		var _relay = new Channel();
 		function __constructor__() {
 			if (_parent && typeof _name === 'string')
-				setup_listener(_parent);
+				setup_listener(_name, _parent);
 			else if (typeof _name === 'object')
 				this.value = _name;
 		};
-		function setup_listener(parent) {
+		var setup_listener = function(name, parent) {
 			parent.open(on_parent_change);
-		};
+		}.bind(this);
 		function destroy_listener(parent) {
 			parent.close(on_parent_change);
 			if (is_model(parent.value))
@@ -232,10 +222,10 @@ gems = new (function Gems() {
 			return val && typeof val === 'object' && typeof val.bind === 'function';
 		};
 		function attach(model) {
-			model.bind(_name, on_property_change);
+			model.open(_name, on_property_change);
 		};
 		function detach(model) {
-			model.unbind(_name, on_property_change);
+			model.close(_name, on_property_change);
 		};
 		var make_null = function() {
 			var old_value = this.value;

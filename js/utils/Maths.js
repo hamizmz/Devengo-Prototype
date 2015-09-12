@@ -1,5 +1,8 @@
 namespace('utils').Maths = new (function Maths() {
 	var self = this;
+	this.is_even = function(num) {
+		return num % 2 === 0;
+	};
 	this.get_diff = function(list1, list2, diff) {
 		diff = diff || [];
 		if (list1.length === 0)
@@ -7,7 +10,7 @@ namespace('utils').Maths = new (function Maths() {
 		var pos = list2.indexOf(list1[0]);
 		if (pos > -1)
 			list2.splice(pos, 1);
-		else	
+		else
 			diff[diff.length] = list1[0];
 		return self.get_diff(list1.slice(1), list2, diff);
 	};
