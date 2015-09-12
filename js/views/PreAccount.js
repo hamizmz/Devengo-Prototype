@@ -19,11 +19,11 @@ namespace('views').PreAccount = function PreAccount(_dom, _state) {
 		var user = _state.user;
 		var form = _dom.form;
 		
-		if (form.name.value)
+		if (form.name.by_tag('input')[0].value)
 			user.contact.name = form.name.by_tag('input')[0].value;
-		if (form.number.value)
+		if (form.number.by_tag('input')[0].value)
 			user.contact.phone = form.number.by_tag('input')[0].value;
-		if (form.email.value)
+		if (form.email.by_tag('input')[0].value)
 			user.contact.email = form.email.by_tag('input')[0].value;
 		
 		user.set_address(
