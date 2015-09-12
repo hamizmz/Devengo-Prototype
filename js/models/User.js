@@ -31,25 +31,25 @@
 			email: '',
 			avatar: '/assets/images/avatars/lafleur.jpg',
 			phone: '',
-			address: {
+			address: new gems.Model({
 				street: '',
 				unit: '',
 				city: '',
 				province: '',
 				postal: ''
-			}
+			})
 		});
 		
 		this.employer = new gems.Model({
 			name: '',
 			phone: '',
-			address: {
+			address: new gems.Model({
 				street: '',
-				unit: null,
+				unit: '',
 				city: '',
 				province: '',
 				postal: ''
-			},
+			}),
 			next_cheque: get_arbitrary_date(new Date()).toLocaleDateString()
 		});
 		
@@ -76,11 +76,11 @@
 		}.bind(this);
 		
 		this.set_address = function(street, unit, city, province, postal) {
-			this.contact.street = street;
-			this.contact.unit = unit || null;
-			this.contact.city = city;
-			this.contact.province = province;
-			this.contact.postal = postal;
+			this.contact.address.street = street;
+			this.contact.address.unit = unit || '';
+			this.contact.address.city = city;
+			this.contact.address.province = province;
+			this.contact.address.postal = postal;
 		}.bind(this);
 		
 		this.set_photo = function(urlOrBlob) {
