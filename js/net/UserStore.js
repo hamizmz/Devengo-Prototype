@@ -39,6 +39,7 @@
 		
 		function copy(from, to) {
 			Object.keys(from).forEach(get_property_copier(from, to));
+			return to;
 		};
 		
 		function get_copy_item(to) {
