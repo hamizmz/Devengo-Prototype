@@ -11,6 +11,11 @@
 		return now;
 	};
 	
+	function get_last_day(now) {
+		now.setDate(utils.Date.total_days(now));
+		return now;
+	};
+	
 	namespace('models').User = function User(_type) {
 		this.id = serial++;
 		this.type = _type;
@@ -24,7 +29,8 @@
 		this.has_bank = false;
 		
 		this.complete = false;
-		this.tier = 0;
+		this.tier = 1;
+		this.expiration = get_last_day(new Date()).toLocaleDateString();
 		
 		this.contact = new gems.Model({
 			name: '',
@@ -50,7 +56,9 @@
 				province: '',
 				postal: ''
 			}),
-			next_cheque: get_arbitrary_date(new Date()).toLocaleDateString()
+			next_cheque: get_arbitrary_date(new Date()).toLocaleDateString(),
+			hours_earned: 0,
+			amount_earned: 0
 		});
 		
 		this.bank = new gems.Model({
