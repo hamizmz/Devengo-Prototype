@@ -125,7 +125,7 @@ gems = new (function Gems() {
 				}
 			}
 			
-			this.raw = _props; // ça marche là?
+			this.raw = _props;
 			delete _attributes;
 		};
 		function getter(prop) {
@@ -253,6 +253,7 @@ gems = new (function Gems() {
 				callback(new Change(this, _name, this.value, null));
 		}.bind(this);
 		this.close = function(callback) {
+			// What if I close it off from a parent?  Do the children disipate?  I guess so, eh?  We shoud test this...
 			if (!callback) {
 				_relay.kill();
 				destroy_listener(_parent);

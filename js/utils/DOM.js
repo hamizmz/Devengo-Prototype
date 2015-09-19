@@ -15,6 +15,7 @@ namespace('utils').DOM = (function dom(_doc) {
 		var container = get_item('account_pages');
 		return {
 			container: container,
+			initial: get_item('account_initial'),
 			history: get_item('account_history'),
 			hours: get_item('account_hours'),
 			employers: get_item('account_employers'),
@@ -33,8 +34,8 @@ namespace('utils').DOM = (function dom(_doc) {
 	
 	function get_header(container) {
 		return {
-			container: container,
-			stuff: null
+			container: container
+			// we should put more here... we hacked it a bit.
 		};
 	};
 	

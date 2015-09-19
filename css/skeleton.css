@@ -785,6 +785,30 @@ article > section {
 	padding:20pt;
 }
 
+#account_initial ol {
+	padding-left:60pt;
+	list-style:decimal;
+}
+
+#account_initial ol li {
+	padding-left:10pt;
+}
+
+#account_initial ol li.Completed::after {
+	content:"3";
+	position:relative;
+	top:4pt;
+	color:#4e9455;
+	font-family:Pictos;
+	font-size:36pt;
+	padding-left:10pt;
+}
+
+#account_initial ol li.Completed button {
+	opacity:0.5;
+	cursor:default;
+}
+
 #account_history time {
 	float:right;
 	font-size:13pt;
