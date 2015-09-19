@@ -43,15 +43,32 @@ namespace('ui').AccountDash = function AccountDash(_dom, _source) {
 		set('account_hours_earned', '(' + e.new_value + ' hours)');
 	};
 	
-	// Bind all our junk, bro!
-	_source.attach('contact').attach('name').open(update_name);
+	function logout(e) {
+		
+	};
 	
-	_source.attach('tier').open(update_tier);
-	_source.attach('expiration').open(update_expiration);
+	this.init = function() {
+		_source.attach('contact').attach('name').open(update_name);
+		
+		_source.attach('tier').open(update_tier);
+		_source.attach('expiration').open(update_expiration);
+		
+		_source.attach('bank').attach('balance').open(update_balance);
+		
+		_employer_src.attach('next_cheque').open(update_paycheque);
+		_employer_src.attach('amount_earned').open(update_amount_earned);
+		_employer_src.attach('hours_earned').open(update_hours_earned);
+		
+		var controls = document.getElementById('account_controls').by_tag('a');
+		
+		//controls[0].addEventListener('click', get_help, false);
+		//controls[1].addEventListener('click', logout, false);
+	};
 	
-	_source.attach('bank').attach('balance').open(update_balance);
+	this.dispose = function() {
+		// TODO: seriously.  dispose of these source attachments (although, setting user to null
+			// KIND of takes care of it...)
+	};
 	
-	_employer_src.attach('next_cheque').open(update_paycheque);
-	_employer_src.attach('amount_earned').open(update_amount_earned);
-	_employer_src.attach('hours_earned').open(update_hours_earned);
+	this.init();
 };

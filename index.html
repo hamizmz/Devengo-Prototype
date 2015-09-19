@@ -63,16 +63,16 @@
 				<section id="slideshow" class="Slideshow">
 					<nav>
 						<li id="slideshow_left"><a href="#">&lt;</a></li>
-					
+						
 						<li class="Selected"><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
-				
+						
 						<li id="slideshow_right"><a href="#">&gt;</a></li>
 					</nav>
 				
 					<article class="Slide">
-						<div class="Backdrop" style="background-image:url('assets/images/slideshow/1.jpg')"></div>
+				<!-- 		<div class="Backdrop" style="background-image:url('assets/images/slideshow/1.jpg')"></div> -->
 						<section>
 							<h1>On-demand pay</h1>
 							<ul>
@@ -84,7 +84,7 @@
 						</section>
 					</article>
 					<article class="Slide">
-						<div class="Backdrop" style="background-image:url('assets/images/slideshow/2.jpg')"></div>
+				<!-- 		<div class="Backdrop" style="background-image:url('assets/images/slideshow/2.jpg')"></div> -->
 						<section>
 							<h1>Socially responsible</h1>
 							<ul>
@@ -98,7 +98,7 @@
 						</section>
 					</article>
 					<article class="Slide">
-						<div class="Backdrop" style="background-image:url('assets/images/slideshow/3.jpg')"></div>
+				<!-- 		<div class="Backdrop" style="background-image:url('assets/images/slideshow/3.jpg')"></div> -->
 						<section>
 							<h1>Financial flexibility</h1>
 							<ul>
@@ -280,7 +280,7 @@
 								<a href="#">Google Play</a>
 							</li>
 						</ul>
-						<ul class="Controls">
+						<ul id="account_controls" class="Controls">
 							<li><a href="#">Help</a></li>
 							<li><a href="#">Logout</a></li>
 						</ul>
@@ -313,7 +313,8 @@
 						<!-- Maybe this should be a radio button instead? -->
 						<a href="#" class="toggle_button" style="display:none;">Toggle</a>
 						<menu>
-							<li class="Selected"><a href="#">Account History</a></li>
+							<li class="Selected"><a href="#">First Steps</a></li>
+							<li><a href="#">Account History</a></li>
 							<li><a href="#">Manage Hours</a></li>
 							<li><a href="#">Manage Employment</a></li>
 							<li><a href="#">Bank Account</a></li>
@@ -321,6 +322,26 @@
 					</section>
 					
 					<section id="account_pages">
+						<article id="account_initial">
+							<div class="Cushion">
+								<h2>Hello there!</h2>
+								<p>
+									Let's get you started!  We'll make things easy: follow the steps below to get your account start and claim your hours today!
+								</p>
+								<ol class="Todo">
+									<li>
+										<button><span class="Icon">%</span>Add Bank Account</button>
+									</li>
+									<li>
+										<button><span class="Icon">x</span>Add Employer</button>
+									</li>
+									<li>
+										<button><span class="Icon">\</span>Submit Your Hours</button>
+									</li>
+								</ol>
+							</div>
+						</article>
+						
 						<article id="account_history">
 							<ol>
 								<li>

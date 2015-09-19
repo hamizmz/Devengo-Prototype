@@ -90,6 +90,10 @@ article {
 	color:#222;
 }
 
+.Slideshow article {
+	background:transparent;
+}
+
 .Slideshow nav li {
 	background-color:rgba(34, 34, 34, 0.62);
 }
@@ -115,7 +119,7 @@ article {
 
 .Number,
 .Dash .Date {
-	color:#4E9455;
+	color:#4e9455;
 }
 
 .Dash label {
@@ -223,6 +227,10 @@ article {
 
 #account_pages ol li:nth-child(even) {
 	background-color:#f5f5f5;
+}
+
+#account_initial ol li {
+	background-color:transparent !important;
 }
 
 #account_history time {

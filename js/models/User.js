@@ -32,6 +32,8 @@
 		this.tier = 1;
 		this.expiration = get_last_day(new Date()).toLocaleDateString();
 		
+		this.__ignore__ = ['expiration'];
+		
 		this.contact = new gems.Model({
 			name: '',
 			email: '',
@@ -58,7 +60,8 @@
 			}),
 			next_cheque: get_arbitrary_date(new Date()).toLocaleDateString(),
 			hours_earned: 0,
-			amount_earned: 0
+			amount_earned: 0,
+			__ignore__: ['next_cheque']
 		});
 		
 		this.bank = new gems.Model({

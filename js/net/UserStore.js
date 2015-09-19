@@ -4,7 +4,7 @@
 	namespace('net').UserStore = new (function UserStore(_name) {
 		var User = models.User;
 		var _users = null;
-	
+		
 		function get_user_filter(type, username, password) {
 			return function(item) {
 				return (type === User.OPEN_ID &&
@@ -28,6 +28,8 @@
 		
 		function get_property_copier(from, to) {
 			return function(prop) {
+				if (to.__ignore__ && to.__ignore__.indexOf(prop) > -1)
+					return;
 				if (from[prop] === null)
 					return;
 				if (typeof from[prop] === 'object')
