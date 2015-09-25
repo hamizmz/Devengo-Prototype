@@ -26,7 +26,7 @@ namespace('views').Account = function Account(_dom, _state) {
 	var _history = new views.account.History(_dom.pages.history);
 	var _hours = new views.account.Hours(_dom.pages.hours);
 	var _employers = new views.account.Employers(_dom.pages.employers);
-	var _bank = new views.account.Bank(_dom.pages.bank);
+	var _bank = new views.account.Bank(_dom.pages.bank, _state);
 	
 	var _menu_links = _dom.menu.links;
 	var _last_item = _menu_links[0].parentNode;
