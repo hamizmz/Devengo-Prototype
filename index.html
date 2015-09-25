@@ -539,33 +539,37 @@
 						<article id="account_bank">
 							<div class="Cushion">
 								<div class="Header">
-									<h3>TD Canada Trust</h3>
-									<button>
+									<h3 id="bank_name_input">------</h3>
+									<button id="bank_edit_button">
 										<span class="Icon">p</span>
 										Edit Bank Info
+									</button>
+									<button id="bank_save_button">
+										<span class="Icon">3</span>
+										Save
 									</button>
 								</div>
 								<div class="Dash">
 									<div class="Bank">
-										<div class="Number">0004</div>
+										<div id="bank_instituion_input" class="Number">---</div>
 										<label>Institution</label>
 									</div>
 									<div class="Branch">
-										<div class="Number">00496</div>
+										<div id="bank_branch_input" class="Number">-----</div>
 										<label>Transit</label>
 									</div>
 									<div class="Account">
-										<div class="Number">7583092</div>
+										<div id="bank_account_input" class="Number">-------</div>
 										<label>Account</label>
 									</div>
 								</div>
 								<div class="Body Cushion">
 									<div class="Row">
-										<label>Login</label><span>the_username</span>
+										<label>Login</label><span id="bank_login_input">---</span>
 									</div>
 									<div class="Row">
-										<label>Password</label><span>******</span>
-										<a href="#">[Reveal Password]</a>
+										<label>Password</label><span id="bank_password_input">---</span>
+										<a id="bank_password_reveal" href="#">[Reveal Password]</a>
 									</div>
 								</div>
 							</div>

@@ -908,7 +908,9 @@ article > section {
 }
 
 #account_bank h3 {
+	position:relative;
 	font-size:22pt;
+	min-width:50%;
 }
 
 #account_bank .Body {
@@ -922,7 +924,18 @@ article > section {
 	font-size:9pt;
 }
 
+#account_bank h3[contenteditable=true]::after {
+	content:"Enter Bank Name";
+	color:#aeaeae;
+	font-size:12pt;
+	position:absolute;
+	bottom:-1.5em;
+	left:0;
+}
 
+#account_bank *[contenteditable=true] {
+	border-bottom:1px solid #aeaeae;
+}
 
 
 
