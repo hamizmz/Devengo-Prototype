@@ -24,7 +24,7 @@ namespace('views').Account = function Account(_dom, _state) {
 	
 	var _initial = new views.account.Initial(_dom.pages.initial, _state);
 	var _history = new views.account.History(_dom.pages.history);
-	var _hours = new views.account.Hours(_dom.pages.hours);
+	var _hours = new views.account.Hours(_dom.pages.hours, _state);
 	var _employers = new views.account.Employers(_dom.pages.employers);
 	var _bank = new views.account.Bank(_dom.pages.bank, _state);
 	
@@ -131,4 +131,5 @@ namespace('views').Account = function Account(_dom, _state) {
 		hook_listener(m[i], i);
 	
 	_initial.link.connect(on_link);
+	_hours.register_clicked.connect(this.show_employers);
 };

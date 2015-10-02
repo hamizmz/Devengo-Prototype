@@ -343,6 +343,8 @@
 						</article>
 						
 						<article id="account_history">
+							<p>You do not have any history yet.</p>
+							<!--
 							<ol>
 								<li>
 									<div class="Header">
@@ -422,49 +424,54 @@
 										<p>Some Transaction has occurred.</p>
 									</div>
 								</li>
-							</ol>
+							</ol>-->
 						</article>
 						
 						<article id="account_hours">
 							<div class="Cushion">
-								<div class="Header">
-									<div class="ProgressBar">
-										<div class="ProgressFill"></div>
-									</div>
-									
-									<div class="Scope">
-										<div class="Progress">
-											<span class="Number">$183.72</span>
-											of
-											<span class="Quota">$250.00</span>
-										</div>
-										<div class="Expiration">
-											Expires September 3, 2015
-										</div>
-									</div>
-									<button>Claim</button>
+								<div id="hours_no_employment">
+									<p>You don't have any employment registered to begin submitting your hours.</p>
+									<button id="hours_register_employment"><span class="Icon">g</span>Register Employment</button>
 								</div>
-								<div class="Cushion">
-									<div class="Upload Body">
-										<button>
-											<span class="Icon">c</span>Upload
-										</button>
-										<p>
-											Take a photo of your timesheet and submit
-											<em>your</em> hours.
-										</p>
+								<div id="hours_has_employment">
+									<div class="Header">
+										<div class="ProgressBar">
+											<div id="hours_progress" class="ProgressFill"></div>
+										</div>
+										<div class="Scope">
+											<div class="Progress">
+												<span id="hours_banked" class="Number">--</span>
+												of
+												<span id="hours_quota" class="Quota">--</span>
+											</div>
+											<div class="Expiration">
+												Expires <span id="hours_expiration">--</span>
+											</div>
+										</div>
+										<button>Claim</button>
 									</div>
 									<div class="Cushion">
-										<div class="Divider">OR</div>
-									</div>
-									<div class="Download Body">
-										<p>
-											Get the mobile app and submit your hours
-											using your smartphone!
-										</p>
-										<button>
-											<span class="Icon">e</span>Download
-										</button>
+										<div class="Upload Body">
+											<button>
+												<span class="Icon">c</span>Upload
+											</button>
+											<p>
+												Take a photo of your timesheet and submit
+												<em>your</em> hours.
+											</p>
+										</div>
+										<div class="Cushion">
+											<div class="Divider">OR</div>
+										</div>
+										<div class="Download Body">
+											<p>
+												Get the mobile app and submit your hours
+												using your smartphone!
+											</p>
+											<button>
+												<span class="Icon">e</span>Download
+											</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -477,6 +484,7 @@
 									Add Employer
 								</button>
 							</div>
+							<!--
 							<ol>
 								<li>
 									<div class="Header">
@@ -533,7 +541,7 @@
 										</button>
 									</div>
 								</li>
-							</ol>
+							</ol>-->
 						</article>
 						
 						<article id="account_bank">

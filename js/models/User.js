@@ -16,7 +16,22 @@
 		return now;
 	};
 	
+	function get_quota(tier) {
+		if (tier === 1)
+			return 250;
+		if (tier === 2)
+			return 500;
+		if (tier === 3)
+			return 1000;
+		if (tier === 4)
+			return 2500;
+		return 0;
+	};
+	
 	namespace('models').User = function User(_type) {
+		// Inherit from gems.Model (code at the bottom)
+		var __self__ = this;
+		
 		this.id = serial++;
 		this.type = _type;
 		this.username = '';
@@ -73,6 +88,12 @@
 			
 			username: '',
 			password: ''
+		});
+		
+		this.hours = new gems.Model({
+			banked: 0,
+			quota: get_quota(__self__.tier),
+			__ignore__: ['quota']
 		});
 		
 		this.set_login = function(username, password) {
