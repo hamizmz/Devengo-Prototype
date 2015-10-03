@@ -49,6 +49,8 @@
 		
 		this.__ignore__ = ['expiration'];
 		
+		this.history = [];
+		
 		this.contact = new gems.Model({
 			name: '',
 			email: '',
@@ -68,7 +70,6 @@
 			phone: '',
 			address: new gems.Model({
 				street: '',
-				unit: '',
 				city: '',
 				province: '',
 				postal: ''
@@ -132,20 +133,29 @@
 			this.bank.password = pass;
 		}.bind(this);
 		
-		this.set_employer = function(name, phone, street, unit, city, province, postal) {
+		this.set_employer = function(name, phone, street, city, province, postal) {
 			this.employer.name = name;
 			this.employer.phone = phone;
 			this.employer.address.street = street;
-			this.employer.address.unit = unit;
 			this.employer.address.city = city;
 			this.employer.address.province = province;
 			this.employer.address.postal = postal;
-		};
+		}.bind(this);
 		
 		this.verify = function(code) {
 			if (code === this.verification_code)
 				return this.verified = true;
 			return false;
+		}.bind(this);
+		
+		this.add_history = function(title, state, photo, description, delta) {
+			this.history = this.history.concat([{
+				title: title,
+				state: state,
+				photo: photo,
+				description: description,
+				delta: delta
+			}]);
 		}.bind(this);
 		
 		this.inheritFrom = gems.Model;

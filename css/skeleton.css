@@ -833,7 +833,7 @@ article > section {
 	font-size:13pt;
 }
 
-#account_history .Icon {
+#account_history ol .Icon {
 	float:right;
 	font-size:48pt;
 	margin-left:4pt;
@@ -937,7 +937,10 @@ article > section {
 	border-bottom:1px solid #aeaeae;
 }
 
-
+#account_bank span[contenteditable=true] {
+	display:inline-block;
+	min-width:80pt;
+}
 
 
 
