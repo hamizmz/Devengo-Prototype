@@ -937,7 +937,10 @@ article > section {
 	border-bottom:1px solid #aeaeae;
 }
 
-
+#account_bank span[contenteditable=true] {
+	display:inline-block;
+	min-width:80pt;
+}
 
 
 

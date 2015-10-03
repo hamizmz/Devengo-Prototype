@@ -76,6 +76,8 @@ namespace('views.account').Employers = function Employers(_dom, _state) {
 		_info.setStyle('display', 'none');
 		_form.setStyle('display', 'block');
 		
+		_cancel_button.setStyle('display', _state.user.has_employer ? 'inline-block' : 'none');
+		
 		setTimeout(_refresh.broadcast, 250);
 	};
 	

@@ -23,7 +23,7 @@ namespace('views').Account = function Account(_dom, _state) {
 	var _pages = _dom.pages.container;
 	
 	var _initial = new views.account.Initial(_dom.pages.initial, _state);
-	var _history = new views.account.History(_dom.pages.history);
+	var _history = new views.account.History(_dom.pages.history, _state);
 	var _hours = new views.account.Hours(_dom.pages.hours, _state);
 	var _employers = new views.account.Employers(_dom.pages.employers, _state);
 	var _bank = new views.account.Bank(_dom.pages.bank, _state);

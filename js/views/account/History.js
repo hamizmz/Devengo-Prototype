@@ -1,11 +1,18 @@
-namespace('views.account').History = function History(_dom) {
+namespace('views.account').History = function History(_dom, _state) {
 	this.dom = _dom;
+	var _source = 
+	
+	function __constructor__() {
+		
+	};
 	
 	this.init = function() {
-		console.log('HISTORY INITIALIZED');
+		
 	};
 	
 	this.dispose = function() {
-		console.log('HISTORY DISPOSED');
+		
 	};
+	
+	__constructor__.call(this);
 };

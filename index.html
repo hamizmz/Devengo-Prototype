@@ -326,7 +326,7 @@
 							<div class="Cushion">
 								<h2>Hello there!</h2>
 								<p>
-									Let's get you started!  We'll make things easy: follow the steps below to get your account start and claim your hours today!
+									Let's get you started!  We'll make things easy: follow the steps below to get your account started and claim your hours today!
 								</p>
 								<ol class="Todo">
 									<li>
@@ -343,7 +343,25 @@
 						</article>
 						
 						<article id="account_history">
-							<p>You do not have any history yet.</p>
+							<div id="history_none_yet" class="Cushion">
+								<p>You do not have any history yet!</p>
+								<button id="history_submit_hours"><span class="Icon">%</span>Submit your hours!</button>
+							</div>
+							<div id="history_exists">
+								<ol>
+									<li>
+										<div class="Header">
+											<h3>Sample Item</h3>
+											<time><span class="Hour">15:30</span> - <span class="Date">02/09/2015</span></time>
+										</div>
+										<div class="Body">
+											<span class="Icon Deposit">%</span>
+											<p>Some Transaction has occurred.</p>
+											<span class="Delta">+ $150.00</span>
+										</div>
+									</li>
+								</ol>
+							</div>
 							<!--
 							<ol>
 								<li>
