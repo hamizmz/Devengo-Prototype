@@ -49,6 +49,8 @@
 		
 		this.__ignore__ = ['expiration'];
 		
+		this.history = [];
+		
 		this.contact = new gems.Model({
 			name: '',
 			email: '',
@@ -138,12 +140,22 @@
 			this.employer.address.city = city;
 			this.employer.address.province = province;
 			this.employer.address.postal = postal;
-		};
+		}.bind(this);
 		
 		this.verify = function(code) {
 			if (code === this.verification_code)
 				return this.verified = true;
 			return false;
+		}.bind(this);
+		
+		this.add_history = function(title, state, photo, description, delta) {
+			this.history = this.history.concat([{
+				title: title,
+				state: state,
+				photo: photo,
+				description: description,
+				delta: delta
+			}]);
 		}.bind(this);
 		
 		this.inheritFrom = gems.Model;

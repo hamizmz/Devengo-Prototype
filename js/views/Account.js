@@ -131,10 +131,17 @@ namespace('views').Account = function Account(_dom, _state) {
 		select_item(4);
 	};
 	
+	this.show_form = function() {
+		alert('Show pop-up here!');
+	};
+	
 	for (var i = 0, m = _menu_links, l = m.length; i < l; i++)
 		hook_listener(m[i], i);
 	
 	_initial.link.connect(on_link);
-	_hours.register_clicked.connect(this.show_employers);
 	_employers.refresh.connect(on_refresh);
+	_hours.register_clicked.connect(this.show_employers);
+	
+	_history.hours_clicked.connect(this.show_form);
+	_hours.submit_clicked.connect(this.show_form);
 };
