@@ -68,7 +68,6 @@
 			phone: '',
 			address: new gems.Model({
 				street: '',
-				unit: '',
 				city: '',
 				province: '',
 				postal: ''
@@ -132,11 +131,10 @@
 			this.bank.password = pass;
 		}.bind(this);
 		
-		this.set_employer = function(name, phone, street, unit, city, province, postal) {
+		this.set_employer = function(name, phone, street, city, province, postal) {
 			this.employer.name = name;
 			this.employer.phone = phone;
 			this.employer.address.street = street;
-			this.employer.address.unit = unit;
 			this.employer.address.city = city;
 			this.employer.address.province = province;
 			this.employer.address.postal = postal;

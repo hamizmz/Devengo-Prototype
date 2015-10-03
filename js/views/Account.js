@@ -25,7 +25,7 @@ namespace('views').Account = function Account(_dom, _state) {
 	var _initial = new views.account.Initial(_dom.pages.initial, _state);
 	var _history = new views.account.History(_dom.pages.history);
 	var _hours = new views.account.Hours(_dom.pages.hours, _state);
-	var _employers = new views.account.Employers(_dom.pages.employers);
+	var _employers = new views.account.Employers(_dom.pages.employers, _state);
 	var _bank = new views.account.Bank(_dom.pages.bank, _state);
 	
 	var _menu_links = _dom.menu.links;
@@ -35,7 +35,7 @@ namespace('views').Account = function Account(_dom, _state) {
 	
 	var push_view = function(view) {
 		_viewpusher.push(view, -1);
-		_pages.setStyle('height', view.dom.offsetHeight, 'px');
+		_pages.setStyle('height', view.dom.offsetHeight, 'px'); // hmmmmm
 	}.bind(this);
 	
 	function select_item(index) {
@@ -83,6 +83,10 @@ namespace('views').Account = function Account(_dom, _state) {
 		else if (page === 3)
 			this.show_hours();
 	}.bind(this);
+	
+	function on_refresh() {
+		_pages.setStyle('height', _employers.dom.offsetHeight, 'px');
+	};
 	
 	this.init = function() {
 		_pages.addTransition('height', 250, 'ease-out', 0);
@@ -132,4 +136,5 @@ namespace('views').Account = function Account(_dom, _state) {
 	
 	_initial.link.connect(on_link);
 	_hours.register_clicked.connect(this.show_employers);
+	_employers.refresh.connect(on_refresh);
 };

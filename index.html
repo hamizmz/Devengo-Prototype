@@ -478,30 +478,68 @@
 						</article>
 						
 						<article id="account_employers">
-							<div class="Header Cushion">
-								<button>
+							<!--<div class="Header Cushion">
+								<button id="employers_add">
 									<span class="Icon">+</span>
 									Add Employer
 								</button>
+							</div>-->
+							<form id="employers_form" class="Cushion">
+								<p>Fill-out the below form to add your employer and start submitting your earned hours!</p>
+								<br /><br />
+								<div class="Row">
+									<label>Business Name</label><input id="employers_name_input" type="text" />
+								</div>
+								<div class="Row">
+									<label>Phone Number</label><input id="employers_phone_input" type="text" />
+								</div>
+								<div class="Row">
+									<fieldset>
+										<legend>Address</legend>
+										<div class="Row">
+											<label>Street Address</label><input id="employers_street_input" type="text" />
+										</div>
+										<div class="Row">
+											<label>City</label><input id="employers_city_input" type="text" />
+										</div>
+										<div class="Row">
+											<label>Province</label><input id="employers_prov_input" type="text" />
+										</div>
+										<div class="Row">
+											<label>Postal Code</label><input id="employers_postal_input" type="text" />
+										</div>
+									</fieldset>
+								</div>
+								<div class="Row">
+									<button id="employers_submit" type="button"><span class="Icon">2</span>Submit</button>
+									<button id="employers_cancel" type="button"><span class="Icon">*</span>Cancel</button>
+								</div>
+							</form>
+							<div id="employers_info" class="Cushion">
+								<ol>
+									<li>
+										<div class="Header">
+											<h3 id="employers_name">--</h3>
+											<span id="employers_phone" class="Phone">--</span>
+										</div>
+										<div class="Body">
+											<p id="employers_address" class="Address">
+												123 Fake Street<br />
+												Toronto, Ontario<br />
+												M6V 3J1
+											</p>
+											<button id="employers_edit">
+												<span class="Icon">p</span>
+												Edit
+											</button>
+										</div>
+									</li>
+								</ol>
 							</div>
 							<!--
 							<ol>
 								<li>
-									<div class="Header">
-										<h3>Employer Name</h3>
-										<span class="Phone">1-416-555-4799</span>
-									</div>
-									<div class="Body">
-										<p class="Address">
-											123 Fake Street<br />
-											Toronto, Ontario<br />
-											M6V 3J1
-										</p>
-										<button>
-											<span class="Icon">p</span>
-											Edit
-										</button>
-									</div>
+									
 								</li>
 								
 								
